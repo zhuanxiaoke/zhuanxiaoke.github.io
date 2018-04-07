@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>麦当劳二维码每周自动更新</title>
+</head>
+<body style="font-family: PingFang SC, Microsoft YaHei, sans-serif; background: #ffd800;">
+	<div style="padding-top: 50px">
+		<div style="text-align: center; font-family: Kai; color: #e90000; text-shadow:1px 0px 0 #900000">
+			<h1 style="letter-spacing: 2px">金拱门大饭店</h1>
+			<p style="letter-spacing: 20px">招牌肉夹馍<br>油炸土豆条<br>鸡蛋灌饼<br>冰镇褐饮</p>
+		</div>
+		<img id='qrcode' style="position: relative; left: 50%; transform:translateX(-50%);">
+		<p style="text-align: center">请在<strong style="color: red"><span id='benzhou'></span>周</strong>的周一~周五早上10点前使用<br>（节假日除外）</p>
+	</div>
+	<script>
+		var bianliang = -6;
+		function padding(num) {
+			if (num < 10) num = '0' + num;
+			return num;
+		}
+		var today = new Date();
+		var weekday = today.getDay();
+		var benzhou = document.getElementById('benzhou');
+		if (weekday == 6) {
+			benzhou.innerHTML = '下';
+			shijiancha = 2 + bianliang;
+		} 
+		else if (weekday == 0) {
+			benzhou.innerHTML = '下';
+			shijiancha = 1 + bianliang;
+		}
+		else {
+			benzhou.innerHTML = '本';
+			shijiancha = 1 - weekday + bianliang;
+		}
+		today.setDate(today.getDate() + shijiancha);
+		month = today.getMonth() + 1;
+		document.getElementById('qrcode').src = 'http://s.jiathis.com/qrcode.php?url=http://mcd.fwc.freemud.cn/' + String(today.getFullYear()).slice(2) + padding(month) + padding(today.getDate()) + 'mfzcq/index.html?ActiveId=696';
+	</script>
+</body>
+</html>
