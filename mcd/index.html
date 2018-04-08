@@ -11,7 +11,10 @@
 			<h1 style="letter-spacing: 2px">金拱门大饭店</h1>
 			<p style="letter-spacing: 20px">招牌肉夹馍<br>油炸土豆条<br>鸡蛋灌饼<br>冰镇褐饮</p>
 		</div>
-		<img id='qrcode' style="position: relative; left: 50%; transform:translateX(-50%);">
+		<a id="link">
+			<img id="qrcode" style="position: relative; left: 50%; transform:translateX(-50%);">
+			<p><button style="position: relative; left: 50%; transform:translateX(-50%);">支付宝内点我直达</button></p>
+		</a>
 		<p style="text-align: center">请在<strong style="color: red"><span id='benzhou'></span>周</strong>的周一~周五早上10点前使用<br>（节假日除外）</p>
 	</div>
 	<script>
@@ -37,7 +40,9 @@
 		}
 		today.setDate(today.getDate() + shijiancha);
 		month = today.getMonth() + 1;
-		document.getElementById('qrcode').src = 'http://s.jiathis.com/qrcode.php?url=http://mcd.fwc.freemud.cn/' + String(today.getFullYear()).slice(2) + padding(month) + padding(today.getDate()) + 'mfzcq/index.html?ActiveId=696';
+		var link = 'http://mcd.fwc.freemud.cn/' + String(today.getFullYear()).slice(2) + padding(month) + padding(today.getDate()) + 'mfzcq/index.html?ActiveId=696'
+		document.getElementById('link').href = link;
+		document.getElementById('qrcode').src = 'http://s.jiathis.com/qrcode.php?url=' + link;
 	</script>
 </body>
 </html>
