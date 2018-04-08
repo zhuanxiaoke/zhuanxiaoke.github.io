@@ -23,7 +23,17 @@
 			if (num < 10) num = '0' + num;
 			return num;
 		}
-		var today = new Date();
+		function getSevertime(){
+			var xmlHttp = new XMLHttpRequest();
+			if( !xmlHttp ){
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlHttp.open("HEAD",location.href,false);
+			xmlHttp.send();
+			var severtime=new Date(xmlHttp.getResponseHeader("Date"));
+			return severtime;
+		}
+		var today = getSevertime();
 		var weekday = today.getDay();
 		var benzhou = document.getElementById('benzhou');
 		if (weekday == 6) {
