@@ -50,7 +50,7 @@
 		}
 		today.setDate(today.getDate() + shijiancha);
 		month = today.getMonth() + 1;
-		var link = 'http://mcd.fwc.freemud.cn/' + String(today.getFullYear()).slice(2) + padding(month) + padding(today.getDate()) + 'mfzcq/index.html?ActiveId=696'
+		var link = 'http://mcd.fwc.freemud.cn/' + String(today.getFullYear()).slice(2) + padding(month) + padding(today.getDate()) + 'mfzcq/index.html'
 		document.getElementById('link').href = link;
 		document.getElementById('qrcode').src = 'http://www.wandoujia.com/qr?c=' + link;
 	</script>
